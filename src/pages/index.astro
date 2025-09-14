@@ -1,11 +1,55 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <section class="hero relative h-screen">
+    <!-- Baggrundsbillede -->
+    <img src="../index/hero.webp" alt="" class="w-full h-full object-cover" />
+
+    <!-- Tekst -->
+    <div class="absolute inset-0 flex items-center justify-center text-center">
+      <div class="relative">
+        <h1 class="hero text-beige tracking-tight relative z-10">
+          INSTANT DAY
+        </h1>
+        <p
+          class="hero-date font-script text-red absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+        >
+          18/10/25
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-red text-white grid grid-cols-1 md:grid-cols-2">
+    <!-- Tekst -->
+    <div
+      class="flex flex-col items-start justify-center p-8 space-y-6 max-w-prose"
+    >
+      <h2>What is Instant Day?</h2>
+      <p>
+        October 18 is Instant Day - a day all about celebrating instant
+        photography. So get out your Polaroid, Instax or whatever instant
+        photography camera you are using, and show us your instants.
+      </p>
+      <p>
+        Instant Day isn’t really a photo competition, it’s more a homage to good
+        old analogue, instant photography - everybody who participates are
+        winners :-)
+      </p>
+      <p>But: We do have a nice prize for one lucky instant photographer!</p>
+      <Button variant="secondary" href="/about" label="Learn more" />
+    </div>
+
+    <!-- Billede -->
+    <div class="flex justify-end p-8">
+      <img
+        src="../index/sec1.webp"
+        alt=""
+        class="max-h-190 w-auto object-contain"
+      />
+    </div>
+  </section>
 </Layout>

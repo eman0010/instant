@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Farver */
+  --color-black: #1D1D1D;
+  --color-white: #F8F7F3;
+  --color-beige: #F3DFB4;
+  --color-red: #CD2C2C;
+  --color-blue: #9BCCD0;
+  --color-green: #90BE6D;
+
+  /* Fonts */
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poller One", ui-sans-serif, sans-serif;
+  --font-script: "Just Me Again Down Here", cursive;
+
+  /* H2 (fx “What is Instant Day?”) */
+  --text-h2-sm: 1.75rem;   /* 28px mobil */
+  --text-h2-md: 2.5rem;    /* 40px tablet */
+  --text-h2-lg: 3.125rem;  /* 50px desktop */
+  --leading-h2: 1.2;
+
+  /* Paragraphs */
+  --text-body: 1.25rem;     /* 20px */
+  --leading-body: 1.5;      /* 30px */
+  --text-body-sm: 1rem;     /* 16px */
+  --leading-body-sm: 1.5;   /* 24px */
+
+  /* Hero H1 */
+  --text-hero-h1-sm: 3rem;     /* 48px mobil */
+  --text-hero-h1-md: 6rem;     /* 96px tablet */
+  --text-hero-h1-lg: 8.75rem;  /* 140px desktop */
+  --leading-hero-h1: 1.1;
+
+  /* Hero dato */
+  --text-hero-date-sm: 4rem;      /* 64px mobil */
+  --text-hero-date-md: 8rem;      /* 128px tablet */
+  --text-hero-date-lg: 11.25rem;  /* 180px desktop */
+  --leading-hero-date: 1;
+}
+@layer base {
+  h2 {
+    @apply font-sans text-h2-sm leading-h2 md:text-h2-md lg:text-h2-lg font-semibold;
+  }
+
+  p {
+    @apply font-sans text-body-sm leading-body-sm md:text-body md:leading-body font-light;
+  }
+
+  h1.hero {
+    @apply font-heading text-hero-h1-sm leading-hero-h1 md:text-hero-h1-md lg:text-hero-h1-lg;
+  }
+
+  .hero-date {
+    @apply font-script text-hero-date-sm leading-hero-date md:text-hero-date-md lg:text-hero-date-lg;
+  }
+}
+

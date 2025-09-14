@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: "primary" | "secondary" | "tertiary";
+  href?: string;
+  label: string;
+}
+
+const { variant = "primary", href = "#", label } = Astro.props as Props;
+
+const base =
+  "inline-block px-6 py-3 rounded-2xl font-sans font-medium text-base transition-transform hover:scale-105";
+
+const variants: Record<"primary" | "secondary" | "tertiary", string> = {
+  primary: "bg-red text-white hover:bg-red/80",
+  secondary: "bg-blue text-black hover:bg-blue/80",
+  tertiary: "bg-beige text-black hover:bg-beige/80",
+};
+
+const classes = `${base} ${variants[variant]}`;
+---
+
+<a href={href} class={classes}>
+  {label}
+</a>

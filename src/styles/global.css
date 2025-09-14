@@ -39,7 +39,7 @@
 
   /* Hero-varianter */
   h1.hero {
-    @apply font-heading text-5xl md:text-7xl lg:text-9xl leading-tight;
+    @apply font-heading text-5xl md:text-7xl lg:text-8xl leading-tight;
   }
 
   .hero-date {

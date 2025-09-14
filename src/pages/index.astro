@@ -1,46 +1,56 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Countdown from "../components/Countdown.astro";
 ---
 
 <Layout>
+  <!-- Hero -->
   <section class="hero relative h-screen">
     <!-- Baggrundsbillede -->
     <img src="../index/hero.webp" alt="" class="w-full h-full object-cover" />
 
-    <!-- Tekst -->
-    <div class="absolute inset-0 flex items-center justify-center text-center">
-      <div class="relative">
+    <!-- Indhold -->
+    <div class="absolute inset-0 flex flex-col justify-between pt-12 pb-12">
+      <!-- Tekstblok (øverst) -->
+      <div class="flex flex-col items-center text-center">
         <h1 class="hero text-beige tracking-tight relative z-10">
           INSTANT DAY
         </h1>
-        <p
-          class="hero-date font-script text-red absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-        >
-          18/10/25
-        </p>
+        <p class="hero-date text-red -mt-20 z-20">18/10/25</p>
+      </div>
+
+      <!-- Countdown + button -->
+      <div class="flex flex-col items-center space-y-4">
+        <Countdown />
+        <Button variant="primary" href="/about" label="Participate" />
       </div>
     </div>
   </section>
 
+  <!-- What is instant day? -->
   <section class="bg-red text-white grid grid-cols-1 md:grid-cols-2">
     <!-- Tekst -->
     <div
       class="flex flex-col items-start justify-center p-8 space-y-6 max-w-prose"
     >
       <h2>What is Instant Day?</h2>
+
       <p>
         October 18 is Instant Day - a day all about celebrating instant
         photography. So get out your Polaroid, Instax or whatever instant
         photography camera you are using, and show us your instants.
       </p>
+
       <p>
         Instant Day isn’t really a photo competition, it’s more a homage to good
         old analogue, instant photography - everybody who participates are
         winners :-)
       </p>
+
       <p>But: We do have a nice prize for one lucky instant photographer!</p>
-      <Button variant="secondary" href="/about" label="Learn more" />
+
+      <Button variant="primary" href="/about" label="Learn more" />
     </div>
 
     <!-- Billede -->
@@ -48,7 +58,7 @@ import Button from "../components/Button.astro";
       <img
         src="../index/sec1.webp"
         alt=""
-        class="max-h-190 w-auto object-contain"
+        class="max-h-[750px] w-auto object-contain"
       />
     </div>
   </section>

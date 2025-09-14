@@ -1,0 +1,40 @@
+---
+const {
+  title,
+  imgSrc,
+  imgAlt = "",
+  reverse = false,
+  bg = "white", // "red" | "blue" | "green" osv.
+  text = "black", // "white" | "black"
+  buttonLabel,
+  buttonHref,
+  buttonVariant = "primary",
+} = Astro.props;
+
+import Button from "./Button.astro";
+---
+
+<section class={`bg-${bg} text-${text} grid grid-cols-1 md:grid-cols-2`}>
+  <!-- Tekst -->
+  <div
+    class={`flex flex-col items-start justify-center p-8 space-y-6 max-w-prose ${reverse ? "md:order-2" : ""}`}
+  >
+    <h2>{title}</h2>
+    <slot />
+
+    {
+      buttonLabel && (
+        <Button variant={buttonVariant} href={buttonHref} label={buttonLabel} />
+      )
+    }
+  </div>
+
+  <!-- Billede -->
+  <div class={`flex justify-end p-8 ${reverse ? "md:order-1" : ""}`}>
+    <img
+      src={imgSrc}
+      alt={imgAlt}
+      class="max-h-[750px] w-auto object-contain"
+    />
+  </div>
+</section>

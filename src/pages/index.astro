@@ -58,32 +58,46 @@ import Countdown from "../components/Countdown.astro";
       <img
         src="../index/sec1.webp"
         alt=""
-        class="max-h-[750px] w-auto object-contain"
+        class="max-h-[650px] w-auto object-contain"
       />
     </div>
   </section>
 
   <!-- Why instant Photography? -->
   <section
-    class="relative bg-cover bg-center bg-no-repeat py-24"
+    class="relative bg-cover bg-center bg-no-repeat py-40"
     style="background-image: url('/index/bg_sec2.webp');"
   >
     <!-- Blå bånd -->
-    <div class="bg-blue text-white p-8">
-      <h2>Why instant Photography?</h2>
-      <p>
-        Instant Photography is a testament to life: It all started back in the
-        1940’s with a 3 year old kid. She wanted to see her fathers images right
-        away. The father, Edwin Land, embarked on a mission: To invent instant
-        photography. Half a decade later, Edwin Land launched Instant
-        photography and established the Polaroid brand. Instant photography
-        turned into big business in the 70’s and 80’s, until the digital era
-        almost killed the industry. The massive amount of time wasted on the
-        small screens have spurred a counterreaction: Analogue, off-line
-        experiences have become popular again. And instant photography is just
-        that: An analogue, life-affirming and tactile photography experience. So
-        let’s celebrate life, and make memories:-)
-      </p>
+    <div class="bg-blue grid grid-cols-1 md:grid-cols-2 text-black">
+      <!-- Billede -->
+      <div class="flex justify-start p-8">
+        <img
+          src="../index/sec2.webp"
+          alt=""
+          class="max-h-[650px] w-auto object-contain"
+        />
+      </div>
+      <!-- Tekst -->
+      <div
+        class="flex flex-col items-start justify-center p-8 space-y-6 max-w-prose"
+      >
+        <h2>Why instant Photography?</h2>
+        <p>
+          Instant Photography is a testament to life: It all started back in the
+          1940’s with a 3 year old kid. She wanted to see her fathers images
+          right away. The father, Edwin Land, embarked on a mission: To invent
+          instant photography. Half a decade later, Edwin Land launched Instant
+          photography and established the Polaroid brand. Instant photography
+          turned into big business in the 70’s and 80’s, until the digital era
+          almost killed the industry. The massive amount of time wasted on the
+          small screens have spurred a counterreaction: Analogue, off-line
+          experiences have become popular again. And instant photography is just
+          that: An analogue, life-affirming and tactile photography experience.
+          So let’s celebrate life, and make memories:-)
+        </p>
+        <Button variant="secondary" href="/about" label="Learn more" />
+      </div>
     </div>
   </section>
 </Layout>

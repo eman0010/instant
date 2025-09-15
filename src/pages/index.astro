@@ -6,6 +6,7 @@ import PolaroidGallery from "../components/PolaroidGallery.astro";
 import IndexSection from "../components/IndexSection.astro";
 import BackdropSection from "../components/BackdropSection.astro";
 import Hero from "../components/Hero.astro";
+import PolaroidPair from "../components/PolaroidPair.astro";
 ---
 
 <Layout>
@@ -29,33 +30,9 @@ import Hero from "../components/Hero.astro";
   <!-- Why instant Photography? -->
   <BackdropSection backgroundImage="/index/bg_sec2.webp" band="blue">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Polaroid-billeder -->
-      <div class="flex w-full h-full justify-start lg:justify-center">
-        <div class="relative flex group">
-          <!-- Bageste polaroid -->
-          <img
-            src="/polaroid7.webp"
-            alt="Polaroid 1"
-            class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-md rotate-[-2deg]
-                   relative z-0 transition-transform duration-500 ease-in-out
-                   group-hover:z-20 group-hover:scale-105 group-hover:rotate-0"
-          />
-
-          <!-- Forreste polaroid -->
-          <img
-            src="/polaroid8.webp"
-            alt="Polaroid 2"
-            class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-lg rotate-[3deg]
-                   relative z-10 -ml-20 mt-[100px]
-                   transition-transform duration-500 ease-in-out
-                   group-hover:z-0 group-hover:scale-95 group-hover:rotate-6"
-          />
-        </div>
-      </div>
-
       <!-- Tekst -->
       <div
-        class="flex flex-col justify-center space-y-6 max-w-lg md:mx-auto md:pl-4"
+        class="flex flex-col justify-center space-y-6 max-w-lg md:pl-4 md:order-2"
       >
         <h2>Why instant Photography?</h2>
         <p>
@@ -77,6 +54,13 @@ import Hero from "../components/Hero.astro";
           memories :-)
         </p>
         <Button variant="secondary" href="/about" label="Learn more" />
+      </div>
+
+      <!-- Polaroid billeder -->
+      <div
+        class="flex w-full h-full justify-start lg:justify-center md:order-1"
+      >
+        <PolaroidPair back="/polaroid7.webp" front="/polaroid8.webp" />
       </div>
     </div>
   </BackdropSection>

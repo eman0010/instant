@@ -1,0 +1,36 @@
+---
+interface Props {
+  back: string; // bagerste polaroid billede
+  front: string; // forreste polaroid billede
+  altBack?: string;
+  altFront?: string;
+}
+
+const {
+  back,
+  front,
+  altBack = "Polaroid back",
+  altFront = "Polaroid front",
+} = Astro.props;
+---
+
+<div class="relative flex group">
+  <!-- Bageste polaroid -->
+  <img
+    src={back}
+    alt={altBack}
+    class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-md rotate-[-2deg]
+           relative z-0 transition-transform duration-500 ease-in-out
+           group-hover:z-20 group-hover:scale-105 group-hover:rotate-0"
+  />
+
+  <!-- Forreste polaroid -->
+  <img
+    src={front}
+    alt={altFront}
+    class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-lg rotate-[3deg]
+           relative z-10 -ml-20 mt-[100px]
+           transition-transform duration-500 ease-in-out
+           group-hover:z-0 group-hover:scale-95 group-hover:rotate-6"
+  />
+</div>

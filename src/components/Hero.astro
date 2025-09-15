@@ -1,6 +1,30 @@
 ---
 import Button from "./Button.astro";
 import Countdown from "./Countdown.astro";
+
+interface CTA {
+  label: string;
+  href: string;
+}
+
+const today = new Date();
+const eventDate = new Date("2025-10-18T00:00:00");
+
+// Slutningen af event-dagen (d. 18/10 kl. 23:59:59)
+const eventEnd = new Date("2025-10-18T23:59:59");
+
+let cta: CTA;
+
+if (today < eventDate) {
+  // Før dagen
+  cta = { label: "Save the date", href: "/about" };
+} else if (today >= eventDate && today <= eventEnd) {
+  // På dagen (mellem midnat og 23:59:59 d. 18/10)
+  cta = { label: "Share your instant", href: "/share" };
+} else {
+  // Efter dagen
+  cta = { label: "See the 2025 contributions", href: "/winners" };
+}
 ---
 
 <section class="hero relative w-full">
@@ -8,7 +32,7 @@ import Countdown from "./Countdown.astro";
   <img
     src="/index/hero.webp"
     alt="Instant Day hero"
-    class="w-full h-auto lg:h-screen object-contain lg:object-cover object-center"
+    class="w-full h-auto sm:h-auto lg:h-screen object-contain sm:object-contain lg:object-cover object-center"
   />
 
   <!-- Indhold ovenpå billedet -->
@@ -18,14 +42,13 @@ import Countdown from "./Countdown.astro";
     <!-- Tekstblok -->
     <div class="flex flex-col items-center text-center">
       <h1 class="hero text-beige tracking-tight relative z-10">INSTANT DAY</h1>
-
       <p class="hero-date text-red relative z-20">18/10/25</p>
     </div>
 
-    <!-- Countdown + knap -->
+    <!-- Countdown + dynamisk CTA -->
     <div class="flex flex-col items-center space-y-0 sm:space-y-4">
       <Countdown />
-      <Button variant="primary" href="/about" label="Share your instant" />
+      <Button variant="primary" href={cta.href} label={cta.label} />
     </div>
   </div>
 </section>

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Countdown from "../components/Countdown.astro";
+import PolaroidGallery from "../components/PolaroidGallery.astro";
 ---
 
 <Layout>
@@ -131,6 +132,15 @@ import Countdown from "../components/Countdown.astro";
         alt=""
         class="max-h-[650px] w-auto object-contain"
       />
+    </div>
+  </section>
+
+  <section
+    class="relative bg-cover bg-center bg-no-repeat py-40"
+    style="background-image: url('/index/bg_sec3.webp');"
+  >
+    <div class="bg-red py-30">
+      <PolaroidGallery count={5} />
     </div>
   </section>
 </Layout>

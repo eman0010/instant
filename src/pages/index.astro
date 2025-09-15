@@ -100,4 +100,37 @@ import Countdown from "../components/Countdown.astro";
       </div>
     </div>
   </section>
+
+  <section class="bg-green text-black grid grid-cols-1 md:grid-cols-2">
+    <!-- Tekst -->
+    <div
+      class="flex flex-col items-start justify-center p-8 space-y-6 max-w-130 mx-auto"
+    >
+      <h2>How to participate</h2>
+
+      <p>
+        So: Got an instant photo ready for the public? In order to take part in
+        Instant Day: Take a photo of your instant with your smartphone (or scan
+        it for max. quality) - the file should be between 2 - 10 MB, in jpg/jpeg
+        or webp format. Upload your photo and credentials on [link til din
+        “share your instants” side] Agree to our terms and conditions [link til
+        din “terms and conditions” sektion på “share your instants” siden]. The
+        short version: Participants have to be 18+, portrayed persons must have
+        given consent, and you agree that your instant can be exhibited and used
+        to promote the photo contest. You can make up to 5 submissions - go
+        through step 1-3 for each submission;-)
+      </p>
+
+      <Button variant="tertiary" href="/about" label="Participate" />
+    </div>
+
+    <!-- Billede -->
+    <div class="flex justify-end p-8">
+      <img
+        src="../index/sec3.webp"
+        alt=""
+        class="max-h-[650px] w-auto object-contain"
+      />
+    </div>
+  </section>
 </Layout>

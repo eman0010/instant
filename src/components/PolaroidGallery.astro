@@ -1,38 +1,27 @@
 ---
 const { count = 5 } = Astro.props;
 
-// polaroid1.webp, polaroid2.webp, ...
 const images = Array.from({ length: count }, (_, i) => ({
   src: `/polaroid${i + 1}.webp`,
   alt: `Polaroid ${i + 1}`,
 }));
 ---
 
-<section class="bg-red py-16">
-  <div class="relative flex justify-center space-x-6">
-    <!-- Snor (SVG) bag billederne -->
-    <svg
-      class="absolute top-1/2 left-0 w-full h-20 -z-10 pointer-events-none"
-      viewBox="0 0 100 20"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M0,10 Q25,0 50,10 T100,10"
-        stroke="white"
-        stroke-width="2"
-        fill="none"></path>
-    </svg>
-
-    {
-      images.map((img, i) => (
-        <img
-          src={img.src}
-          alt={img.alt}
-          class={`w-40 md:w-48 lg:w-56 object-contain drop-shadow-lg
-                ${i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"}`}
-        />
-      ))
-    }
-  </div>
-</section>
+<div
+  class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center"
+>
+  {
+    images.map((img, i) => (
+      <img
+        src={img.src}
+        alt={img.alt}
+        class={`
+          w-32 sm:w-36 md:w-44 lg:w-48 object-contain drop-shadow-lg
+          transition-transform duration-300 hover:scale-110
+          ${i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"}
+          ${i > 2 ? "hidden lg:block" : ""}
+        `}
+      />
+    ))
+  }
+</div>

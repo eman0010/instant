@@ -39,11 +39,31 @@
 
   /* Hero-varianter */
   h1.hero {
-    @apply font-heading text-5xl md:text-7xl lg:text-8xl leading-tight;
+  @apply font-heading text-beige tracking-tight relative z-10 leading-tight;
+  font-size: clamp(1rem, 9vw, 10rem);
+}
+
+.hero-date {
+  @apply font-script text-red relative z-20 italic leading-none;
+  font-size: clamp(3rem, 11vw, 13rem);
+
+  /* Overlap styres manuelt pr. breakpoint */
+  @apply -mt-6 sm:-mt-10 md:-mt-14 lg:-mt-20 xl:-mt-24;
+}
+
+}
+
+
+@layer components {
+  .btn {
+    @apply inline-block w-fit rounded-2xl font-sans font-medium transition-transform hover:scale-105;
+    font-size: clamp(0.9rem, 2vw, 1.25rem); /* ~14px → 20px */
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
   }
 
-  .hero-date {
-    @apply font-script text-6xl md:text-8xl lg:text-[180px] leading-none italic;
+  .countdown {
+    @apply font-sans font-medium tracking-tight;
+    font-size: clamp(1rem, 3vw, 2rem); /* ~16px → 32px */
   }
 }
 

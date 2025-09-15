@@ -7,18 +7,13 @@ interface Props {
 
 const { variant = "primary", href = "#", label } = Astro.props as Props;
 
-const base =
-  "inline-block px-6 py-3 rounded-2xl font-sans font-medium text-base transition-transform hover:scale-105";
-
 const variants: Record<"primary" | "secondary" | "tertiary", string> = {
   primary: "bg-blue text-black hover:bg-blue/80",
   secondary: "bg-red text-white hover:bg-red/80",
   tertiary: "bg-white text-black hover:bg-white/80",
 };
-
-const classes = `${base} ${variants[variant]}`;
 ---
 
-<a href={href} class={classes}>
+<a href={href} class={`btn ${variants[variant]}`}>
   {label}
 </a>

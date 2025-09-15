@@ -1,87 +1,22 @@
 ---
-import Button from "./Button.astro";
-
-type Color = "white" | "black" | "red" | "blue" | "green";
-type Text = "white" | "black";
-
 interface Props {
   backgroundImage: string;
-  band?: Color;     // båndets baggrundsfarve
-  text?: Text;      // båndets tekstfarve
-  sectionPY?: string; // fx "py-40" hvor meget bg-billede titter frem
-  bandPY?: string;    // fx "py-24" padding i båndet
-
-  // Hvis du vil bruge det som 2-col grid
-  title?: string;
-  paragraphs?: string[];
-  button?: { variant: "primary" | "secondary" | "tertiary"; href: string; label: string };
-  image?: string;
-  reversed?: boolean;
-  imageMaxH?: string;
+  band?: "red" | "blue"; // kun tilladte kombinationer
 }
 
-const {
-  backgroundImage,
-  band = "white",
-  text = "black",
-  sectionPY = "py-40",
-  bandPY = "p-10 gap-8",
-  title,
-  paragraphs,
-  button,
-  image,
-  reversed = false,
-  imageMaxH = "max-h-[790px]"
-} = Astro.props as Props;
+const { backgroundImage, band = "red" } = Astro.props;
 
 const bandClass = {
-  white: "bg-white",
-  black: "bg-black",
-  red:   "bg-red",
-  blue:  "bg-blue",
-  green: "bg-green",
+  red: "bg-red text-white",
+  blue: "bg-blue text-black",
 }[band];
-
-const textClass = {
-  white: "text-white",
-  black: "text-black",
-}[text];
-
-const isGrid = title && paragraphs;
 ---
 
 <section
-  class={`relative bg-cover bg-center bg-no-repeat ${sectionPY}`}
+  class="relative bg-cover bg-center bg-no-repeat py-40"
   style={`background-image: url('${backgroundImage}');`}
 >
-  <div class={`${bandClass} ${textClass} ${isGrid ? "grid grid-cols-1 md:grid-cols-2" : ""} ${bandPY}`}>
-    {isGrid ? (
-      <>
-        <!-- Tekst -->
-        <div class={`flex flex-col justify-center space-y-6 max-w-lg ${reversed ? "md:order-2 md:mx-auto md:pl-4" : "md:mx-auto md:pl-4"}`}>
-          <h2>{title}</h2>
-
-          {paragraphs!.map((p) => <p>{p}</p>)}
-
-          {button && (
-            <Button variant={button.variant} href={button.href} label={button.label} />
-          )}
-        </div>
-
-        <!-- Billede -->
-        {image ? (
-          <div class={`flex items-center ${reversed ? "justify-start md:justify-end md:order-1" : "justify-start md:justify-end"}`}>
-            <img src={image} alt={title} class={`w-auto object-contain ${imageMaxH}`} />
-          </div>
-        ) : (
-          <div class={`flex items-center ${reversed ? "justify-start md:justify-end md:order-1" : "justify-start md:justify-end"}`}>
-            <slot name="image" />
-          </div>
-        )}
-      </>
-    ) : (
-      <slot />
-    )}
+  <div class={`${bandClass} p-10`}>
+    <slot />
   </div>
 </section>
-

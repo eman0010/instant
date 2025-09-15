@@ -1,0 +1,31 @@
+---
+import Button from "./Button.astro";
+import Countdown from "./Countdown.astro";
+---
+
+<section class="hero relative w-full">
+  <!-- Baggrundsbillede -->
+  <img
+    src="/index/hero.webp"
+    alt="Instant Day hero"
+    class="w-full h-auto lg:h-screen object-contain lg:object-cover object-center"
+  />
+
+  <!-- Indhold ovenpå billedet -->
+  <div
+    class="absolute inset-0 flex flex-col justify-between pt-6 md:pt-12 pb-6 md:pb-12"
+  >
+    <!-- Tekstblok -->
+    <div class="flex flex-col items-center text-center">
+      <h1 class="hero text-beige tracking-tight relative z-10">INSTANT DAY</h1>
+
+      <p class="hero-date text-red relative z-20">18/10/25</p>
+    </div>
+
+    <!-- Countdown + knap -->
+    <div class="flex flex-col items-center space-y-0 sm:space-y-4">
+      <Countdown />
+      <Button variant="primary" href="/about" label="Participate" />
+    </div>
+  </div>
+</section>

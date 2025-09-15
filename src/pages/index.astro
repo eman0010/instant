@@ -3,144 +3,92 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Countdown from "../components/Countdown.astro";
 import PolaroidGallery from "../components/PolaroidGallery.astro";
+import IndexSection from "../components/IndexSection.astro";
+import BackdropSection from "../components/BackdropSection.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout>
-  <!-- Hero -->
-  <section class="hero relative h-screen">
-    <!-- Baggrundsbillede -->
-    <img src="../index/hero.webp" alt="" class="w-full h-full object-cover" />
+  <Hero />
 
-    <!-- Indhold -->
-    <div class="absolute inset-0 flex flex-col justify-between pt-12 pb-12">
-      <!-- Tekstblok (øverst) -->
-      <div class="flex flex-col items-center text-center">
-        <h1 class="hero text-beige tracking-tight relative z-10">
-          INSTANT DAY
-        </h1>
-        <p class="hero-date text-red -mt-20 z-20">18/10/25</p>
-      </div>
-
-      <!-- Countdown + button -->
-      <div class="flex flex-col items-center space-y-4">
-        <Countdown />
-        <Button variant="primary" href="/about" label="Participate" />
-      </div>
-    </div>
-  </section>
-
-  <!-- What is instant day? -->
-  <section class="bg-red text-white grid grid-cols-1 md:grid-cols-2 p-10 gap-8">
-    <!-- Tekst -->
-    <div
-      class="flex flex-col justify-center space-y-6 max-w-md md:mx-auto pl-4"
-    >
-      <h2>What is Instant Day?</h2>
-
-      <p>
-        October 18 is Instant Day - a day all about celebrating instant
-        photography. So get out your Polaroid, Instax or whatever instant
-        photography camera you are using, and show us your instants.
-      </p>
-
-      <p>
-        Instant Day isn’t really a photo competition, it’s more a homage to good
-        old analogue, instant photography - everybody who participates are
-        winners :-)
-      </p>
-
-      <p>But: We do have a nice prize for one lucky instant photographer!</p>
-
-      <Button variant="primary" href="/about" label="Learn more" />
-    </div>
-
-    <!-- Billede -->
-    <div class="flex justify-start md:justify-end items-center">
-      <img
-        src="../index/sec1.webp"
-        alt=""
-        class="w-auto max-h-[790px] object-contain"
-      />
-    </div>
-  </section>
+  <!-- What is Instant Day? -->
+  <IndexSection
+    title="What is Instant Day?"
+    paragraphs={[
+      "October 18 is Instant Day - a day all about celebrating instant photography. So get out your Polaroid, Instax or whatever instant photography camera you are using, and show us your instants.",
+      "Instant Day isn’t really a photo competition, it’s more a homage to good old analogue, instant photography - everybody who participates are winners :-)",
+      "But: We do have a nice prize for one lucky instant photographer!",
+    ]}
+    button={{ variant: "primary", href: "/about", label: "Learn more" }}
+    image="/index/sec1.webp"
+    bg="red"
+    text="white"
+  />
 
   <!-- Why instant Photography? -->
-  <section
-    class="relative bg-cover bg-center bg-no-repeat py-40"
-    style="background-image: url('/index/bg_sec2.webp');"
+  <BackdropSection
+    backgroundImage="/index/bg_sec2.webp"
+    band="blue"
+    text="black"
+    title="Why instant Photography?"
+    paragraphs={[
+      "Instant Photography is a testament to life: It all started back in the 1940’s with a 3 year old kid. She wanted to see her fathers images right away. The father, Edwin Land, embarked on a mission: To invent instant photography. Half a decade later, Edwin Land launched Instant photography and established the Polaroid brand.",
+      "Instant photography turned into big business in the 70’s and 80’s, until the digital era almost killed the industry. The massive amount of time wasted on the small screens have spurred a counterreaction: Analogue, off-line experiences have become popular again.",
+      "And instant photography is just that: An analogue, life-affirming and tactile photography experience. So let’s celebrate life, and make memories :-)",
+    ]}
+    button={{ variant: "secondary", href: "/about", label: "Learn more" }}
+    reversed
   >
-    <!-- Blå bånd -->
-    <div class="bg-blue grid grid-cols-1 md:grid-cols-2 text-black">
-      <!-- Billede -->
-      <div class="flex justify-start p-8">
+    <div
+      slot="image"
+      class="flex w-full h-full justify-start lg:justify-center"
+    >
+      <div class="relative flex group">
+        <!-- Bageste polaroid -->
         <img
-          src="../index/sec2.webp"
-          alt=""
-          class="max-h-[650px] w-auto object-contain"
+          src="/polaroid7.webp"
+          alt="Polaroid 1"
+          class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-md rotate-[-2deg]
+             relative z-0 transition-transform duration-500 ease-in-out
+             group-hover:z-20 group-hover:scale-105 group-hover:rotate-0"
+        />
+
+        <!-- Forreste polaroid -->
+        <img
+          src="/polaroid8.webp"
+          alt="Polaroid 2"
+          class="w-48 md:w-56 lg:w-72 object-contain drop-shadow-lg rotate-[3deg]
+             relative z-10 -ml-20 mt-[100px]
+             transition-transform duration-500 ease-in-out
+             group-hover:z-0 group-hover:scale-95 group-hover:rotate-6"
         />
       </div>
-      <!-- Tekst -->
-      <div
-        class="flex flex-col items-start justify-center p-8 space-y-6 max-w-prose"
-      >
-        <h2>Why instant Photography?</h2>
-        <p>
-          Instant Photography is a testament to life: It all started back in the
-          1940’s with a 3 year old kid. She wanted to see her fathers images
-          right away. The father, Edwin Land, embarked on a mission: To invent
-          instant photography. Half a decade later, Edwin Land launched Instant
-          photography and established the Polaroid brand. Instant photography
-          turned into big business in the 70’s and 80’s, until the digital era
-          almost killed the industry. The massive amount of time wasted on the
-          small screens have spurred a counterreaction: Analogue, off-line
-          experiences have become popular again. And instant photography is just
-          that: An analogue, life-affirming and tactile photography experience.
-          So let’s celebrate life, and make memories:-)
-        </p>
-        <Button variant="secondary" href="/about" label="Learn more" />
-      </div>
     </div>
-  </section>
+  </BackdropSection>
 
-  <section class="bg-green text-black grid grid-cols-1 md:grid-cols-2">
-    <!-- Tekst -->
-    <div
-      class="flex flex-col items-start justify-center p-8 space-y-6 max-w-130 mx-auto"
-    >
-      <h2>How to participate</h2>
+  <!-- How to participate -->
+  <IndexSection
+    title="How to participate"
+    paragraphs={[
+      "So: Got an instant photo ready for the public? In order to take part in Instant Day: Take a photo of your instant with your smartphone (or scan it for max. quality) - the file should be between 2 - 10 MB, in jpg/jpeg or webp format.",
+      "Upload your photo and credentials on [link til din “share your instants” side] Agree to our terms and conditions [link til din “terms and conditions” sektion på “share your instants” siden].",
+      "The short version: Participants have to be 18+, portrayed persons must have given consent, and you agree that your instant can be exhibited and used to promote the photo contest.",
+      "You can make up to 5 submissions - go through step 1-3 for each submission ;-)",
+    ]}
+    button={{ variant: "tertiary", href: "/about", label: "Participate" }}
+    image="/index/sec3.webp"
+    bg="green"
+    text="black"
+  />
 
-      <p>
-        So: Got an instant photo ready for the public? In order to take part in
-        Instant Day: Take a photo of your instant with your smartphone (or scan
-        it for max. quality) - the file should be between 2 - 10 MB, in jpg/jpeg
-        or webp format. Upload your photo and credentials on [link til din
-        “share your instants” side] Agree to our terms and conditions [link til
-        din “terms and conditions” sektion på “share your instants” siden]. The
-        short version: Participants have to be 18+, portrayed persons must have
-        given consent, and you agree that your instant can be exhibited and used
-        to promote the photo contest. You can make up to 5 submissions - go
-        through step 1-3 for each submission;-)
-      </p>
-
-      <Button variant="tertiary" href="/about" label="Participate" />
-    </div>
-
-    <!-- Billede -->
-    <div class="flex justify-end p-8">
-      <img
-        src="../index/sec3.webp"
-        alt=""
-        class="max-h-[650px] w-auto object-contain"
-      />
-    </div>
-  </section>
-
-  <section
-    class="relative bg-cover bg-center bg-no-repeat py-40"
-    style="background-image: url('/index/bg_sec3.webp');"
+  <!-- Polaroid gallery -->
+  <BackdropSection
+    backgroundImage="/index/bg_sec3.webp"
+    band="red"
+    text="white"
+    sectionPY="py-40"
+    bandPY="py-24"
   >
-    <div class="bg-red py-30">
-      <PolaroidGallery count={5} />
-    </div>
-  </section>
+    <PolaroidGallery count={5} />
+  </BackdropSection>
 </Layout>

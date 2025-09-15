@@ -1,40 +1,75 @@
 ---
+import Button from "./Button.astro";
+
+type Color = "white" | "black" | "red" | "blue" | "green";
+type Text = "white" | "black";
+
+interface Props {
+  title: string;
+  paragraphs: string[];
+  button?: {
+    variant: "primary" | "secondary" | "tertiary";
+    href: string;
+    label: string;
+  };
+  image: string;
+  bg?: Color;
+  text?: Text;
+  reversed?: boolean;
+  imageMaxH?: string;
+}
+
 const {
   title,
-  imgSrc,
-  imgAlt = "",
-  reverse = false,
-  bg = "white", // "red" | "blue" | "green" osv.
-  text = "black", // "white" | "black"
-  buttonLabel,
-  buttonHref,
-  buttonVariant = "primary",
-} = Astro.props;
+  paragraphs,
+  button,
+  image,
+  bg = "white",
+  text = "black",
+  reversed = false,
+  imageMaxH = "max-h-[790px]",
+} = Astro.props as Props;
 
-import Button from "./Button.astro";
+const bgClass = {
+  white: "bg-white",
+  black: "bg-black",
+  red: "bg-red",
+  blue: "bg-blue",
+  green: "bg-green",
+}[bg];
+
+const textClass = {
+  white: "text-white",
+  black: "text-black",
+}[text];
 ---
 
-<section class={`bg-${bg} text-${text} grid grid-cols-1 md:grid-cols-2`}>
+<section
+  class={`${bgClass} ${textClass} grid grid-cols-1 md:grid-cols-2 p-10 gap-8`}
+>
   <!-- Tekst -->
   <div
-    class={`flex flex-col items-start justify-center p-8 space-y-6 max-w-prose ${reverse ? "md:order-2" : ""}`}
+    class={`flex flex-col justify-center space-y-6 max-w-lg ${reversed ? "md:order-2 md:mx-auto md:pl-4" : "md:mx-auto md:pl-4"}`}
   >
     <h2>{title}</h2>
-    <slot />
+
+    {paragraphs.map((p) => <p>{p}</p>)}
 
     {
-      buttonLabel && (
-        <Button variant={buttonVariant} href={buttonHref} label={buttonLabel} />
+      button && (
+        <Button
+          variant={button.variant}
+          href={button.href}
+          label={button.label}
+        />
       )
     }
   </div>
 
   <!-- Billede -->
-  <div class={`flex justify-end p-8 ${reverse ? "md:order-1" : ""}`}>
-    <img
-      src={imgSrc}
-      alt={imgAlt}
-      class="max-h-[750px] w-auto object-contain"
-    />
+  <div
+    class={`flex items-center ${reversed ? "justify-start md:justify-end md:order-1" : "justify-start md:justify-end"}`}
+  >
+    <img src={image} alt={title} class={`w-auto object-contain ${imageMaxH}`} />
   </div>
 </section>

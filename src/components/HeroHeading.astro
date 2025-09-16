@@ -1,0 +1,13 @@
+---
+const {
+  title,
+  subtitle,
+  titleColor = "text-beige",
+  subtitleColor = "text-red",
+} = Astro.props;
+---
+
+<div class="flex flex-col items-center text-center">
+  <h1 class={`hero ${titleColor}`}>{title}</h1>
+  {subtitle && <p class={`hero-date ${subtitleColor}`}>{subtitle}</p>}
+</div>

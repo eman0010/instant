@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroHeading from "../components/HeroHeading.astro";
+import GridSection from "../components/GridSection.astro";
+---
+
+<Layout>
+  <!-- Hero-sektion -->
+  <section class="bg-red text-white py-20 px-10">
+    <HeroHeading title="Winner of" subtitle="2024" subtitleColor="text-white" />
+
+    <GridSection
+      bg="red"
+      text="white"
+      imageAlign="center"
+      image="/WinnersNominees/NewMeetsOld.webp"
+      imageAlt="New meets old"
+      imageMaxH="max-h-[400px]"
+    >
+      <h2>New meets old</h2>
+
+      <div>
+        <p class="font-bold">Submitter:</p>
+        <p>Stefan Grage</p>
+      </div>
+
+      <div>
+        <p class="font-bold">Description/story:</p>
+        <p class="text-sm leading-relaxed">
+          I wanted to catch the new city development district, Ørestad, in a
+          shade of old school. So I used a Polaroid Now+ gen 2 in tripod mode
+          with an i-Type black and white film in order to make a long exposure.
+        </p>
+      </div>
+    </GridSection>
+  </section>
+
+  <section class="bg-blue py-20 px-10">
+    <h3>2024 Nominees</h3>
+    <GridSection
+      bg="blue"
+      text="white"
+      imageAlign="center"
+      image="/WinnersNominees/NewMeetsOld.webp"
+      imageAlt="New meets old"
+      imageMaxH="max-h-[400px]"
+    >
+      <h2>New meets old</h2>
+
+      <div>
+        <p class="font-bold">Submitter:</p>
+        <p>Stefan Grage</p>
+      </div>
+
+      <div>
+        <p class="font-bold">Description/story:</p>
+        <p class="text-sm leading-relaxed">
+          I wanted to catch the new city development district, Ørestad, in a
+          shade of old school. So I used a Polaroid Now+ gen 2 in tripod mode
+          with an i-Type black and white film in order to make a long exposure.
+        </p>
+      </div>
+    </GridSection>
+  </section>
+</Layout>

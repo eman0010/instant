@@ -1,22 +1,17 @@
 ---
 interface Props {
   backgroundImage: string;
-  band?: "red" | "blue"; // kun tilladte kombinationer
+  band?: "red" | "blue";
 }
 
 const { backgroundImage, band = "red" } = Astro.props;
-
-const bandClass = {
-  red: "bg-red text-white",
-  blue: "bg-blue text-black",
-}[band];
 ---
 
 <section
   class="relative bg-cover bg-center bg-no-repeat py-40"
   style={`background-image: url('${backgroundImage}');`}
 >
-  <div class={`${bandClass} p-10`}>
+  <div>
     <slot />
   </div>
 </section>

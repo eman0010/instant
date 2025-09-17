@@ -3,10 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Countdown from "../components/index/Countdown.astro";
 import PolaroidGallery from "../components/PolaroidGallery.astro";
-import IndexSection from "../components/index/IndexSection.astro";
 import BackdropSection from "../components/index/BackdropSection.astro";
 import Hero from "../components/index/Hero.astro";
 import PolaroidPair from "../components/PolaroidPair.astro";
+import GridSection from "../components/GridSection.astro";
 ---
 
 <Layout>
@@ -14,116 +14,185 @@ import PolaroidPair from "../components/PolaroidPair.astro";
   <Hero />
 
   <!-- What is Instant Day? -->
-  <IndexSection
-    title="What is Instant Day?"
-    paragraphs={[
-      "October 18 is Instant Day - a day all about celebrating instant photography. So get out your Polaroid, Instax or whatever instant photography camera you are using, and show us your instants.",
-      "Instant Day isn’t really a photo competition, it’s more a homage to good old analogue, instant photography - everybody who participates are winners :-)",
-      "But: We do have a nice prize for one lucky instant photographer!",
-    ]}
-    button={{ variant: "primary", href: "/about", label: "Share your instant" }}
-    image="/index/sec1.webp"
-    bg="red"
-    text="white"
-  />
+  <section>
+    <GridSection
+      bg="red"
+      text="white"
+      image="/index/sec1.webp"
+      imageAlt="Instant Day illustration"
+    >
+      <h2>What is Instant Day?</h2>
+
+      <p>
+        October 18 is Instant Day - a day all about celebrating instant
+        photography. So get out your Polaroid, Instax or whatever instant
+        photography camera you are using, and show us your instants.
+      </p>
+
+      <p>
+        Instant Day isn’t really a photo competition, it’s more a homage to good
+        old analogue, instant photography - everybody who participates are
+        winners :-)
+      </p>
+
+      <p>But: We do have a nice prize for one lucky instant photographer!</p>
+
+      <Button variant="primary" href="/about" label="Share your instant" />
+    </GridSection>
+  </section>
 
   <!-- Why instant Photography? -->
-  <BackdropSection backgroundImage="/index/bg_sec2.webp" band="blue">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <BackdropSection backgroundImage="/index/bg_sec2.webp">
+    <GridSection reversed bg="blue" imageAlign="center">
       <!-- Tekst -->
-      <div
-        class="flex flex-col justify-center space-y-6 max-w-lg md:pl-4 md:order-2"
-      >
-        <h2>Why instant Photography?</h2>
-        <p>
-          Instant Photography is a testament to life: It all started back in the
-          1940’s with a 3 year old kid. She wanted to see her fathers images
-          right away. The father, Edwin Land, embarked on a mission: To invent
-          instant photography. Half a decade later, Edwin Land launched Instant
-          photography and established the Polaroid brand.
-        </p>
-        <p>
-          Instant photography turned into big business in the 70’s and 80’s,
-          until the digital era almost killed the industry. The massive amount
-          of time wasted on the small screens have spurred a counterreaction:
-          Analogue, off-line experiences have become popular again.
-        </p>
-        <p>
-          And instant photography is just that: An analogue, life-affirming and
-          tactile photography experience. So let’s celebrate life, and make
-          memories :-)
-        </p>
-        <Button variant="secondary" href="/about" label="Learn more" />
-      </div>
+      <h2>Why instant Photography?</h2>
 
-      <!-- Polaroid billeder -->
-      <div
-        class="flex w-full h-full justify-start lg:justify-center md:order-1"
-      >
-        <PolaroidPair back="/polaroid7.webp" front="/polaroid8.webp" />
-      </div>
-    </div>
+      <p>
+        Instant Photography is a testament to life: It all started back in the
+        1940’s with a 3 year old kid. She wanted to see her fathers images right
+        away. The father, Edwin Land, embarked on a mission: To invent instant
+        photography. Half a decade later, Edwin Land launched Instant
+        photography and established the Polaroid brand.
+      </p>
+
+      <p>
+        Instant photography turned into big business in the 70’s and 80’s, until
+        the digital era almost killed the industry. The massive amount of time
+        wasted on the small screens have spurred a counterreaction: Analogue,
+        off-line experiences have become popular again.
+      </p>
+
+      <p>
+        And instant photography is just that: An analogue, life-affirming and
+        tactile photography experience. So let’s celebrate life, and make
+        memories :-)
+      </p>
+
+      <Button variant="secondary" href="/about" label="Learn more" />
+
+      <!-- Billede-slot -->
+      <PolaroidPair
+        slot="image"
+        back="/polaroid7.webp"
+        front="/polaroid8.webp"
+      />
+    </GridSection>
   </BackdropSection>
-
   <!-- How to participate -->
-  <IndexSection
-    title="How to participate"
-    paragraphs={[
-      "So: Got an instant photo ready for the public? In order to take part in Instant Day: Take a photo of your instant with your smartphone (or scan it for max. quality) - the file should be between 2 - 10 MB, in jpg/jpeg or webp format.",
-      "Upload your photo and credentials on [link til din “share your instants” side] Agree to our terms and conditions [link til din “terms and conditions” sektion på “share your instants” siden].",
-      "The short version: Participants have to be 18+, portrayed persons must have given consent, and you agree that your instant can be exhibited and used to promote the photo contest.",
-      "You can make up to 5 submissions - go through step 1-3 for each submission ;-)",
-    ]}
-    button={{
-      variant: "tertiary",
-      href: "/about",
-      label: "Share your instant",
-    }}
-    image="/index/sec3.webp"
-    bg="green"
-    text="black"
-  />
+  <section>
+    <GridSection
+      bg="green"
+      text="black"
+      image="/index/sec3.webp"
+      imageAlt="How to participate illustration"
+    >
+      <h2>How to participate</h2>
+
+      <p>
+        So: Got an instant photo ready for the public? In order to take part in
+        Instant Day: Take a photo of your instant with your smartphone (or scan
+        it for max. quality) – the file should be between 2 – 10 MB, in jpg/jpeg
+        or webp format.
+      </p>
+
+      <p>
+        Upload your photo and credentials on
+        <a href="/about" class="underline">share your instants</a>. Agree to our
+        terms and conditions
+        <a href="/about#terms" class="underline">here</a>.
+      </p>
+
+      <p>
+        The short version: Participants have to be 18+, portrayed persons must
+        have given consent, and you agree that your instant can be exhibited and
+        used to promote the photo contest.
+      </p>
+
+      <p>
+        You can make up to 5 submissions – go through step 1–3 for each
+        submission ;-)
+      </p>
+
+      <Button variant="tertiary" href="/about" label="Share your instant" />
+    </GridSection>
+  </section>
 
   <!-- Inspiration (Polaroid gallery) -->
-  <BackdropSection backgroundImage="/index/bg_sec3.webp" band="red">
-    <h2>Inspiration</h2>
-    <p>Take a look at some of the submissions from the past for inspiration:</p>
+  <BackdropSection backgroundImage="/index/bg_sec3.webp">
+    <div class="text-white bg-red p-10">
+      <h2>Inspiration</h2>
+      <p>
+        Take a look at some of the submissions from the past for inspiration:
+      </p>
 
-    <div class="flex flex-col space-y-6">
       <PolaroidGallery count={5} />
 
-      <!-- Knap under galleriet -->
-      <Button variant="primary" href="/winners" label="More" />
+      <!-- Tekst i 2 kolonner -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Venstre kolonne -->
+        <p>
+          You can also get a lot of inspiration from the art Photography scene.<br
+          /><br />
+          Dan Isaac Wallin is a Swedish art photographer, who uses large format and
+          vintage polaroid cameras for his work. His work hangs in numerous houses
+          as posters.
+          <a
+            href="https://www.danisaacwallin.com/"
+            target="_blank"
+            rel="noopener"
+            class="underline"
+          >
+            www.danisaacwallin.com
+          </a><br /><br />
+          Mette Kelter is a Danish art photographer, who often experiments with deliberate
+          destruction of the chemical process in instant photos. One of the key words
+          here is unpredictability in the work process, which leads to interesting
+          and unique artworks.
+          <a
+            href="https://www.kelterphotography.com/"
+            target="_blank"
+            rel="noopener"
+            class="underline"
+          >
+            www.kelterphotography.com
+          </a>
+        </p>
 
-      <p>
-        You can also get a lot of inspiration from the art Photography scene.
-      </p>
-      <p>
-        Dan Isaac Wallin is a swedish art photographer, who uses large format
-        and vintage polaroid cameras for his work. His work hangs in numerous
-        houses as posters. [https://www.danisaacwallin.com/]
-      </p>
-      <p>
-        Mette Kelter is a danish art photographer, who often experiments with
-        deliberate destruction of the chemical process in instant photos. One of
-        the key words here is unpredictability in the work process, which leads
-        to interesting and unique artworks. [https://www.kelterphotography.com/]
-      </p>
-      <p>
-        Maripol is a french artist/photographer/film producer. Her claim to fame
-        was in the 1980’s, where she photographed famous people with a Polaroid
-        SX-70. Her photographs are still very influential in the fashion
-        industry. [https://en.wikipedia.org/wiki/Maripol]
-      </p>
-      <p>
-        The Polaroid collection was a large collection of instant photographs
-        assembled by the Polaroid corporation and featured work from a lot of
-        famous photographers. The collection was split into various parts and
-        put on auction when the Polaroid corporation went into bankruptcy in
-        2008. Luckily, you can find books with photographs from the collection,
-        for instance The Polaroid Book by Steve Crist and Barbara Hitchcock.
-        [https://www.taschen.com/en/books/photography/40752/the-polaroid-book-45th-ed/]
-      </p>
+        <!-- Højre kolonne -->
+        <div class="flex flex-col space-y-6">
+          <p>
+            Maripol is a French artist/photographer/film producer. Her claim to
+            fame was in the 1980’s, where she photographed famous people with a
+            Polaroid SX-70. Her photographs are still very influential in the
+            fashion industry.
+            <a
+              href="https://en.wikipedia.org/wiki/Maripol"
+              target="_blank"
+              rel="noopener"
+              class="underline"
+            >
+              Wikipedia
+            </a><br /><br />
+            The Polaroid collection was a large collection of instant photographs
+            assembled by the Polaroid corporation and featured work from a lot of
+            famous photographers. The collection was split into various parts and
+            put on auction when the Polaroid corporation went into bankruptcy in
+            2008. Luckily, you can find books with photographs from the collection,
+            for instance <em>The Polaroid Book</em> by Steve Crist and Barbara Hitchcock.
+            <a
+              href="https://www.taschen.com/en/books/photography/40752/the-polaroid-book-45th-ed/"
+              target="_blank"
+              rel="noopener"
+              class="underline"
+            >
+              Taschen – The Polaroid Book
+            </a>
+          </p>
+
+          <!-- Knap ligger under teksten i højre kolonne -->
+          <Button variant="primary" href="/winners" label="More" />
+        </div>
+      </div>
     </div>
   </BackdropSection>
 </Layout>

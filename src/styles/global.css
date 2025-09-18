@@ -34,9 +34,10 @@
     @apply font-sans font-semibold text-lg md:text-xl lg:text-2xl leading-snug;
   }
 
-  p {
-    @apply font-body font-light text-base md:text-lg lg:text-xl leading-relaxed;
-  }
+p {
+  @apply font-body font-light text-base md:text-base lg:text-lg leading-relaxed;
+}
+
 
   /* Hero-varianter */
   h1.hero {
@@ -45,7 +46,7 @@
 }
 
 .hero-date {
-  @apply font-script text-red relative z-20 italic leading-none;
+  @apply font-script relative z-20 italic leading-none;
   font-size: clamp(3rem, 11vw, 13rem);
 
   /* Overlap styres manuelt pr. breakpoint */
@@ -55,11 +56,12 @@
 
 
 @layer components {
-  .btn {
-    @apply inline-block w-fit rounded-2xl font-heading transition-transform hover:scale-105;
-    font-size: clamp(0.9rem, 2vw, 1.25rem); /* ~14px → 20px */
-    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
-  }
+.btn {
+  @apply inline-block w-fit rounded-2xl font-heading transition-transform hover:scale-105;
+  @apply text-base md:text-base lg:text-lg;
+  @apply px-4 md:px-6 lg:px-8 py-2 md:py-3;
+}
+
 
   .countdown {
     @apply font-sans font-medium tracking-tight;

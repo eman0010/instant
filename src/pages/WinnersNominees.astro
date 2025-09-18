@@ -1,0 +1,230 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroHeading from "../components/HeroHeading.astro";
+import GridSection from "../components/GridSection.astro";
+---
+
+<Layout>
+  <!-- Hero-sektion -->
+  <section class="bg-red text-white p-20">
+    <HeroHeading title="Winner of" subtitle="2024" subtitleColor="text-white" />
+
+    <GridSection
+      bg="red"
+      text="black"
+      imageAlign="center"
+      image="/WinnersNominees/NewMeetsOld.webp"
+      imageAlt="Langtidseksponering i sort-hvid af moderne byggeri i Ørestad med et retro Polaroid-look"
+      imageMaxH="max-h-[400px]"
+    >
+      <h3>New meets old</h3>
+
+      <div>
+        <p class="font-bold">Submitter:</p>
+        <p>Stefan Grage</p>
+      </div>
+
+      <div>
+        <p class="font-bold">Description/story:</p>
+        <p>
+          I wanted to catch the new city development district, Ørestad, in a
+          shade of old school. So I used a Polaroid Now+ gen 2 in tripod mode
+          with an i-Type black and white film in order to make a long exposure.
+        </p>
+
+        <p class="mt-10 italic opacity-80">
+          Scroll down to see all <span class="font-semibold"
+            >2024 nominations</span
+          >
+        </p>
+      </div>
+    </GridSection>
+  </section>
+
+  <div
+    class="bg-cover bg-center bg-no-repeat py-20"
+    style="background-image: url('/index/bg_sec2.webp');"
+  >
+  </div>
+
+  <!-- 2024 nominees -->
+  <section class="bg-blue text-black py-20">
+    <div class="mx-auto text-center space-y-6 px-10 mb-16">
+      <h2 class="hero-date">2024 nominees</h2>
+      <p class="max-w-2xl mx-auto">
+        Instant day was quite a success with more than 5000 contributions. So it
+        was difficult to find a winner. After a couple of long but exciting
+        days, the judges agreed on the winner and the 7 nominees.
+      </p>
+    </div>
+
+    <!-- Wrapper med spacing mellem GridSections -->
+    <div class="space-y-20">
+      <GridSection
+        reversed
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/loserup.webp"
+        imageAlt="Strandmotiv ved Løserup med kølige farver og magenta farvestik fra Polaroidfilm"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Løserup Strand</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            Too cold to take a dip. So I took a photo instead. The polaroid had
+            an awful magenta color cast, but I ended up liking it. Taken with a
+            Polaroid Now+ gen 2 and an i-Type film, which I probably stored
+            incorrectly.
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/burger.webp"
+        imageAlt="Barn ved et bord i Burger King, der holder fast i sin Happy Meal uden at ville dele"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Hands off my happy meal!</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            A casual snap from Burger King. As it shows, the youngest kid didn’t
+            want to share his happy meal (or whatever a kids meal is called in
+            Burger King). Taken with an Instax Mini (can’t remember which
+            camera).
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        reversed
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/strand.webp"
+        imageAlt="Udsigt fra Amager Strand med Københavns skyline i baggrunden, taget med gul filtereffekt"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Amager Strand</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            From this angle, copenhagen looks like a big city. Taken with a
+            Polaroid Now+ gen 2, with a yellow tint filter.
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/mikro.webp"
+        imageAlt="Eksperimentelt polaroidfoto af stranden ved sommerhus i Løserup, fremkaldt på mikrobølget instaxfilm"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Micro adventure 2</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            The beach at my summer house in Løserup. Expired instax mini film. I
+            microwaved it. I should have studied how to microwave an instant
+            image: It caught fire in the oven.
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        reversed
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/vejlands.webp"
+        imageAlt="Panoramafoto af Vejlands Allé med tung trafik, sammensat af flere polaroidbilleder"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Vejlands allé</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            Big road, lots of traffic. Too wide for a single shot. So I composed
+            this image on an old Minolta panoramic camera, and printed in on a
+            Polaroid Lab with expired film, cut up the polaroids (lazy dry lift)
+            and stitched them together on my scanner.
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/amager.webp"
+        imageAlt="Snapshot fra Amager Fælled med naturmotiv taget på en Lomomatic Square"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Amager Fælled</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            A little snap from Amager Fælled, a large common in the southwestern
+            part of Copenhagen, Denmark. Taken with a Lomomatic Square.
+          </p>
+        </div>
+      </GridSection>
+
+      <GridSection
+        reversed
+        bg="blue"
+        text="black"
+        imageAlign="center"
+        image="/WinnersNominees/karlstrup.webp"
+        imageAlt="Polaroidfoto af Karlstrup Kalkgrav med kaffebrun tone efter at være blevet gennemvædet i kaffe"
+        imageMaxH="max-h-[400px]"
+      >
+        <h3>Karlstrup & coffee</h3>
+        <div>
+          <p class="font-bold">Submitter:</p>
+          <p>Stefan Grage</p>
+        </div>
+        <div>
+          <p class="font-bold">Description/story:</p>
+          <p>
+            The scenic beauty of a former lime pit with a twist of coffee: The
+            polaroid was soaked in coffee for a couple of weeks. That gave it a
+            nice tan. Polaroid flip.
+          </p>
+        </div>
+      </GridSection>
+    </div>
+  </section>
+</Layout>

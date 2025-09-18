@@ -1,0 +1,30 @@
+---
+import Button from './Button.astro';
+const { imageSrc } = Astro.props;
+---
+
+<div class="bg-white  shadow-s px-4 p-4 lg:p-4 max-w-md w-full mx-auto lg:max-w-lg">
+  <!-- Øverste billede -->
+  {imageSrc && <img src={imageSrc} alt="Form Image" class="w-full h-auto mb-6" />}
+
+  <!-- Formularfelter -->
+  <form class="flex flex-col gap-2">
+    <input type="text" placeholder="Full Name" class="border border-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red" />
+    <input type="email" placeholder="Email" class="border border-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red" />
+    <input type="file" placeholder="Photo Upload" class="border border-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red" />
+    <input type="text" placeholder="Submission Title" class="border border-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red" />
+    <textarea placeholder="Submission Description" class="border border-black px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red resize-none"></textarea>
+    <div class="flex items-center gap-2">
+        <input type="checkbox" id="terms" class="w-4 h-4" />
+        <label for="terms" class="text-sm lg:text-base text-red">
+          I have read and agree to the terms and conditions
+        </label>
+      </div>
+    
+
+    <!-- Knap nederst til højre -->
+    <div class="flex justify-end mt-4">
+        <Button label="Submit" variant="primary" />
+    </div>
+  </form>
+</div>

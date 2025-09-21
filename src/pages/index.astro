@@ -119,16 +119,18 @@ import GridSection from "../components/GridSection.astro";
 
   <!-- Inspiration (Polaroid gallery) -->
   <BackdropSection backgroundImage="/index/bg_sec3.webp">
-    <div class="text-white bg-red p-10">
-      <h2>Inspiration</h2>
-      <p>
-        Take a look at some of the submissions from the past for inspiration:
-      </p>
+    <div class="text-white bg-red">
+      <div class="p-10">
+        <h2>Inspiration</h2>
+        <p>
+          Take a look at some of the submissions from the past for inspiration:
+        </p>
+      </div>
 
       <PolaroidGallery count={5} />
 
       <!-- Tekst i 2 kolonner -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10">
         <!-- Venstre kolonne -->
         <p>
           You can also get a lot of inspiration from the art Photography scene.<br

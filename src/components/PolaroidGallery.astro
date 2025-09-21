@@ -7,22 +7,32 @@ const images = Array.from({ length: count }, (_, i) => ({
 }));
 ---
 
-<div
-  class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center
-         py-10 sm:py-12 lg:py-16"
->
-  {
-    images.map((img, i) => (
-      <img
-        src={img.src}
-        alt={img.alt}
-        class={`
-          w-32 sm:w-36 md:w-44 lg:w-48 object-contain drop-shadow-lg
-          transition-transform duration-300 hover:scale-110
-          ${i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"}
-          ${i > 2 ? "hidden lg:block" : ""}
-        `}
-      />
-    ))
-  }
+<div class="relative">
+  <!-- stregen (skjult på mobil) -->
+  <img
+    src="/streg.webp"
+    alt=""
+    aria-hidden="true"
+    class="hidden sm:block absolute inset-0 w-full h-full object-contain z-0"
+  />
+
+  <div
+    class="relative z-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5
+           gap-4 justify-items-center py-10 sm:py-12 lg:py-16"
+  >
+    {
+      images.map((img, i) => (
+        <img
+          src={img.src}
+          alt={img.alt}
+          class={`
+            w-36 sm:w-44 md:w-48 lg:w-52 object-contain drop-shadow-lg
+            transition-transform duration-300 hover:scale-110
+            ${i % 2 === 0 ? "rotate-[-3deg]" : "rotate-[3deg]"}
+            ${i > 2 ? "hidden lg:block" : ""}
+          `}
+        />
+      ))
+    }
+  </div>
 </div>
